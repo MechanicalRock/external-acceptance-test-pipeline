@@ -1,0 +1,44 @@
+{
+  "name": "external-acceptance-test-pipeline",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "deploy:test": "serverless deploy --stage test",
+    "deploy:verify": "serverless invoke -f triggerJob -s test",
+    "deploy:post-verify": "echo 'SUCCESS'",
+    "deploy:post-verify-fail": "node -e 'throw new Error(\"FAILED\")'",
+    "deploy:prod": "serverless deploy --stage prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@TODO"
+  },
+  "author": "Tim Myerscough <tim.myerscough@mechanicalrock.io>",
+  "contributors": [],
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "aws-lambda": "^0.1.2",
+    "aws-sdk": "^2.94.0",
+    "aws-sdk-mock": "^1.7.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^3.5.0",
+    "chai-fs": "^1.0.0",
+    "cucumber": "^2.3.1",
+    "fs-extra": "^0.26.7",
+    "jasmine": "^2.6.0",
+    "jasmine-spec-reporter": "^4.1.1",
+    "nodemon": "^1.11.0",
+    "request": "https://registry.npmjs.org/request/-/request-2.79.0.tgz",
+    "request-promise": "^4.1.1",
+    "serverless": "^1.18.1",
+    "serverless-webpack": "^2.0.0",
+    "sinon": "^2.3.8",
+    "source-map-support": "^0.4.0",
+    "webpack": "^3.4.0"
+  }
+}
