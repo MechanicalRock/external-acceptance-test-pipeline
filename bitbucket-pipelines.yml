@@ -30,12 +30,12 @@ pipelines:
   custom:
     deployment-to-prod:
     - step:
-      caches:
-        - node
-        - yarncustom
-      script: # Modify the commands below to build your repository.
-        - yarn install
-        - yarn run deploy:prod
+        caches:
+          - node
+          - yarncustom
+        script: # Modify the commands below to build your repository.
+          - yarn install
+          - yarn run deploy:prod
           
 definitions:
   caches:
