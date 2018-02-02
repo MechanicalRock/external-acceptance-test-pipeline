@@ -54,3 +54,4 @@ Deploy the project:
 ```
 node_modules/.bin/serverless deploy
 ```
+ 
