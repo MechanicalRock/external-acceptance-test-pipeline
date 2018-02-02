@@ -5,9 +5,9 @@ pipelines:
       - step:
           name: Deploy to test
           deployment: test
-          caches:
-            - node
-            - yarncustom
+          # caches:
+          #   - node
+          #   - yarncustom
           script: 
             - yarn install
             - yarn run deploy:test
@@ -19,14 +19,14 @@ pipelines:
         - env | grep -v AWS
     deployment-to-prod:
     - step:
-        caches:
-          - node
-          - yarncustom
+        # caches:
+        #   - node
+        #   - yarncustom
         script: 
           - yarn install
           - yarn run deploy:post-verify
           - yarn run deploy:prod
           
-definitions:
-  caches:
-    yarncustom: /usr/local/share/.cache/yarn/v1
+# definitions:
+#   caches:
+#     yarncustom: /usr/local/share/.cache/yarn/v1
