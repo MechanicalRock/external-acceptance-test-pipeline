@@ -29,7 +29,11 @@ pipelines:
             - yarn run deploy:prod
   custom:
     deployment-to-prod:
-      - step:
+    - step:
+      caches:
+        - node
+        - yarncustom
+      script: # Modify the commands below to build your repository.
         - yarn install
         - yarn run deploy:prod
           
