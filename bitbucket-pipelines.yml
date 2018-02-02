@@ -12,21 +12,6 @@ pipelines:
             - yarn install
             - yarn run deploy:test
             - yarn run deploy:verify
-      - step:
-          name: Verify Deploy
-          trigger: manual
-          caches:
-            - node
-          script:
-            - yarn run deploy:post-verify
-      - step:
-          name: Deploy to prod
-          caches:
-            - node
-            - yarncustom
-          script: # Modify the commands below to build your repository.
-            - yarn install
-            - yarn run deploy:prod
   custom:
     show-env:
     - step:
@@ -39,6 +24,7 @@ pipelines:
           - yarncustom
         script: # Modify the commands below to build your repository.
           - yarn install
+          - yarn run deploy:post-verify
           - yarn run deploy:prod
           
 definitions:

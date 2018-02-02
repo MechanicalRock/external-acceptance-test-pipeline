@@ -4,20 +4,18 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "deploy:test": "serverless deploy --stage test",
-    "deploy:verify": "serverless invoke -f triggerJob -s test",
-    "deploy:post-verify": "echo 'SUCCESS'",
-    "deploy:post-verify-fail": "node -e 'throw new Error(\"FAILED\")'",
-    "deploy:prod": "serverless deploy --stage prod"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@TODO"
+    "deploy:test": "node src/deploy-test.js",
+    "deploy:verify": "node src/verify.js",
+    "deploy:post-verify": "node src/post-verify.js",
+    "deploy:prod": "node src/deploy-prod.js"
   },
   "author": "Tim Myerscough <tim.myerscough@mechanicalrock.io>",
   "contributors": [],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^0.0.24",
     "@types/jest": "^21.1.8",
@@ -35,8 +33,6 @@
     "jasmine": "^2.6.0",
     "jasmine-spec-reporter": "^4.1.1",
     "nodemon": "^1.11.0",
-    "request": "^2.83.0",
-    "request-promise": "^4.2.2",
     "serverless": "^1.18.1",
     "serverless-webpack": "^2.0.0",
     "sinon": "^2.3.8",
