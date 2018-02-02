@@ -8,7 +8,7 @@ pipelines:
           caches:
             - node
             - yarncustom
-          script: # Modify the commands below to build your repository.
+          script: 
             - yarn install
             - yarn run deploy:test
             - yarn run deploy:verify
@@ -22,7 +22,7 @@ pipelines:
         caches:
           - node
           - yarncustom
-        script: # Modify the commands below to build your repository.
+        script: 
           - yarn install
           - yarn run deploy:post-verify
           - yarn run deploy:prod
