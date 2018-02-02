@@ -3,17 +3,12 @@ image: mechanicalrock/docker-awscli-npm:latest
 pipelines:
   default:
       - step:
-          name: Build
-          caches:
-            - node
-          script:
-            - yarn install
-      - step:
           name: Deploy to test
           deployment: test
           caches:
             - node
           script: # Modify the commands below to build your repository.
+            - yarn install
             - yarn run deploy:test
             - yarn run deploy:verify
       - step:
@@ -29,4 +24,5 @@ pipelines:
             - pip
             - node
           script: # Modify the commands below to build your repository.
+            - yarn install
             - yarn run deploy:prod
