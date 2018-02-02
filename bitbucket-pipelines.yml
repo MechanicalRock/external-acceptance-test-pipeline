@@ -27,14 +27,15 @@ pipelines:
           script: # Modify the commands below to build your repository.
             - yarn install
             - yarn run deploy:prod
-      - custom:
-          name: Deploy to prod2
-          caches:
-            - node
-            - yarncustom
-          script: # Modify the commands below to build your repository.
-            - yarn install
-            - yarn run deploy:prod
+  custom:
+    - deployment-to-prod:
+      name: Deploy to prod2
+      caches:
+        - node
+        - yarncustom
+      script: # Modify the commands below to build your repository.
+        - yarn install
+        - yarn run deploy:prod
           
 definitions:
   caches:
