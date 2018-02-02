@@ -17,9 +17,11 @@
   "author": "Tim Myerscough <tim.myerscough@mechanicalrock.io>",
   "contributors": [],
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/aws-lambda": "^0.0.24",
+    "@types/jest": "^21.1.8",
+    "@types/node": "^9.4.0",
     "aws-lambda": "^0.1.2",
     "aws-sdk": "^2.94.0",
     "aws-sdk-mock": "^1.7.0",
@@ -38,8 +40,8 @@
     "serverless": "^1.18.1",
     "serverless-webpack": "^2.0.0",
     "sinon": "^2.3.8",
-    "ts-loader": "^3.4.0",
     "source-map-support": "^0.4.0",
+    "ts-loader": "^3.4.0",
     "typescript": "^2.7.1",
     "webpack": "^3.4.0"
   }

@@ -23,7 +23,8 @@ export const handler: Handler = (event: APIGatewayEvent, context: Context, cb: C
 
   let succeed = result => cb(null,result)
   let fail = err => cb(err)
-  lambda.invoke({FunctionName: process.env.NOTIFY_JOB, InvocationType: "Event", Payload: payload}).promise().then(succeed).catch(fail)
+  let functionName = process.env.NOTIFY_JOB || 'NOTIFY_JOB_not_set'
+  lambda.invoke({FunctionName: functionName, InvocationType: "Event", Payload: payload}).promise().then(succeed).catch(fail)
 
 }
 

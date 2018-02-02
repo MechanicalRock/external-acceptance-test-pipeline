@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
     "sourceMap": true,
-    "lib": [
-      "es5",
-      "es2015.promise"
-    ]
-  }
+    "target": "es5",
+    "outDir": ".build",
+    "moduleResolution": "node",
+    "lib": ["es2015", "es6", "esnext"],
+    "rootDir": "./"
+  },
+  "exclude": [
+    "./node_modules"
+  ]
 }
