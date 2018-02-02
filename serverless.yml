@@ -11,12 +11,12 @@ provider:
   region: ap-southeast-2
 
 custom:
-  notifyJobArn: "arn:aws:lambda:${self:provider.region}:${env:AWS_ACCOUNT}:function:${self:service}-${self:provider.stage}-notifyJob"
+  notifyJobArn: "arn:aws:lambda:${self:provider.region}:${env:AWS_ACCOUNT}:function:${self:service}-${opt:stage}-notifyJob"
 
 functions:
   triggerJob:
     handler: src/trigger-job.handler
-    # role: functionPermission
+    role: functionPermission
     environment:
       NOTIFY_JOB: ${self:custom.notifyJobArn}
   notifyJob:
