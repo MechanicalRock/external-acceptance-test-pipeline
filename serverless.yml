@@ -10,12 +10,15 @@ provider:
   runtime: nodejs6.10
   region: ap-southeast-2
 
+custom:
+  notifyJobArn: "arn:aws:lambda:${self:provider.region}:${self:provider.environment.AWS_ACCOUNT}:function:${self:service}-${self:provider.stage}-notifyJob"
+
 functions:
   triggerJob:
     handler: src/trigger-job.handler
     role: functionPermission
     environment:
-      NOTIFY_JOB: "arn:aws:lambda:${self:provider.region}:${self:provider.environment.AWS_ACCOUNT}:function:${self:service}-${self:provider.stage}-notifyJob"
+      NOTIFY_JOB: ${self:custom.notifyJobArn}
   notifyJob:
     handler: src/notify-job.handler
 
@@ -41,4 +44,4 @@ resources:
                 - Effect: "Allow"
                   Action:
                     - "lambda:InvokeFunction"
-                  Resource: "${self:provider.environment.FUNCTION_ARN}"
+                  Resource: "${self:custom.notifyJobArn}"
