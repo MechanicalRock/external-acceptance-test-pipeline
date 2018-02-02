@@ -7,6 +7,7 @@ pipelines:
           deployment: test
           caches:
             - node
+            - yarncustom
           script: # Modify the commands below to build your repository.
             - yarn install
             - yarn run deploy:test
@@ -21,8 +22,11 @@ pipelines:
       - step:
           name: Deploy to prod
           caches:
-            - pip
             - node
+            - yarncustom
           script: # Modify the commands below to build your repository.
             - yarn install
             - yarn run deploy:prod
+definitions:
+  caches:
+    yarncustom: /usr/local/share/.cache/yarn/v1
