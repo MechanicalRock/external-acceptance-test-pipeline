@@ -6,8 +6,8 @@ pipelines:
           name: Deploy to test
           deployment: test
           caches:
-            - node
-          #   - yarncustom
+            # - node
+            - yarncustom
           script: 
             - yarn install
             - yarn run deploy:test
@@ -20,13 +20,13 @@ pipelines:
     deployment-to-prod:
     - step:
         caches:
-          - node
-        #   - yarncustom
+          # - node
+          - yarncustom
         script: 
           - yarn install
           - yarn run deploy:post-verify
           - yarn run deploy:prod
           
-# definitions:
-#   caches:
-#     yarncustom: /usr/local/share/.cache/yarn/v1
+definitions:
+  caches:
+    yarncustom: /usr/local/share/.cache/yarn/v1
