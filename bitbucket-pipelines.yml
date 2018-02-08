@@ -13,10 +13,6 @@ pipelines:
             - yarn run deploy:test
             - yarn run deploy:verify
   custom:
-    show-env:
-    - step:
-        script:
-        - env | grep -v AWS
     deployment-to-prod:
     - step:
         caches:
