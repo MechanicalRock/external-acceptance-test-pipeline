@@ -20,7 +20,7 @@
     "@types/aws-lambda": "^0.0.24",
     "@types/jest": "^21.1.8",
     "@types/node": "^9.4.0",
-    "aws-lambda": "^0.1.2",
+    "aws-lambda": "^1.0.5",
     "aws-sdk": "^2.94.0",
     "aws-sdk-mock": "^1.7.0",
     "babel-core": "^6.25.0",
