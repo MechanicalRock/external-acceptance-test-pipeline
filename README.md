@@ -1,3 +1,5 @@
+**Note** - This repository is not maintained.  It probably has security vulnerabilities - it should not be used for production use.
+
 # external-acceptance-pipeline
 
 Automated verification (testing) is a key part of any Continuous Delivery pipeline.
